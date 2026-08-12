@@ -1,5 +1,6 @@
 # Local project metadata
 .atl/
+.codegraph/
 
 # Environment files
 .env

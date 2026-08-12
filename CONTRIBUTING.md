@@ -1,6 +1,6 @@
 # Contributing to Entrama
 
-Entrama is currently in a docs-first foundation phase. Contributions should improve the approved product direction, technical architecture, accessibility, privacy, curriculum policy, or repository documentation without implying that a runnable application exists.
+Entrama has a runnable first application slice. Contributions should extend it through small, tested work units while preserving the approved product direction, technical architecture, accessibility, privacy, and curriculum policy.
 
 By participating, you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
@@ -14,11 +14,28 @@ By participating, you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 Small corrections such as broken links, spelling, and unambiguous formatting fixes may be submitted directly.
 
-## Future Implementation Workflow
+## Implementation Workflow
 
-Application implementation has not started. There are no supported installation, build, lint, test, or development commands yet. Do not invent commands in issues or pull requests.
+Use Bun as both runtime and package manager. Do not create npm, pnpm, or Yarn lockfiles.
 
-An implementation workflow will be documented after the initial scaffold establishes a package manager, reproducible environment, quality gates, and verified commands. Until then, application-code contributions are not ready for review.
+```sh
+bun install
+bunx playwright install chromium
+bun run dev
+```
+
+Before submitting application changes, run every quality gate:
+
+```sh
+bun run format:check
+bun run lint
+bun run typecheck
+bun run test
+bun run test:e2e
+bun run build
+```
+
+Keep framework-neutral domain behavior outside React components and include focused tests with the behavior they verify.
 
 ## Pull Request Expectations
 

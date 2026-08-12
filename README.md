@@ -2,7 +2,7 @@
 
 Entrama is a free, open-source bilingual typing practice application designed to improve keyboard precision through continuous English-Spanish association. It keeps practice immediate and uninterrupted: type an English word or short phrase, then its Spanish equivalent, with character-level feedback and layout-aware guidance.
 
-> **Current status:** The product requirements and MVP architecture are defined. Application implementation has not started, and there is not yet a runnable build.
+> **Current status:** The first runnable application slice is available. It includes the accessible practice shell, framework-neutral grapheme progression, and an installable offline app shell; the broader MVP remains in development.
 
 ## How Practice Works
 
@@ -32,23 +32,40 @@ The complete accepted architecture, including data models, synchronization, secu
 
 ## Repository Map
 
-| Path | Purpose |
-|---|---|
-| [`docs/PRD.md`](docs/PRD.md) | Approved MVP product requirements, scope, and claim boundaries |
-| [`docs/RFC.md`](docs/RFC.md) | Accepted MVP technical architecture and implementation constraints |
-| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Current contribution workflow and review expectations |
-| [`CONTENT_LICENSE.md`](CONTENT_LICENSE.md) | Curriculum and content licensing and provenance rules |
-| [`SECURITY.md`](SECURITY.md) | Private vulnerability reporting policy |
+| Path                                       | Purpose                                                            |
+| ------------------------------------------ | ------------------------------------------------------------------ |
+| [`docs/PRD.md`](docs/PRD.md)               | Approved MVP product requirements, scope, and claim boundaries     |
+| [`docs/RFC.md`](docs/RFC.md)               | Accepted MVP technical architecture and implementation constraints |
+| [`src/typing`](src/typing)                 | Framework-neutral typing progression and correction policy         |
+| [`src/app`](src/app)                       | React application shell and practice adapter                       |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md)       | Current contribution workflow and review expectations              |
+| [`CONTENT_LICENSE.md`](CONTENT_LICENSE.md) | Curriculum and content licensing and provenance rules              |
+| [`SECURITY.md`](SECURITY.md)               | Private vulnerability reporting policy                             |
 
-## Development Status
+## Development
 
-The repository is in its foundation phase. Product and architecture decisions are ready for implementation planning, but no application source, package manifest, build pipeline, or working setup command exists yet. The next development stage is to translate the approved documents into small, reviewable implementation work units.
+Entrama requires [Bun](https://bun.sh/) 1.3.10. Install dependencies and start Vite with the Bun runtime:
+
+```sh
+bun install
+bunx playwright install chromium
+bun run dev
+```
+
+Run the complete local quality gate before submitting a change:
+
+```sh
+bun run format:check
+bun run lint
+bun run typecheck
+bun run test
+bun run test:e2e
+bun run build
+```
 
 ## Contributing
 
-Contributions are currently focused on reviewing and improving the product, architecture, accessibility, privacy, curriculum policy, and repository documentation. For substantial changes, open an issue before preparing a pull request so the direction can be aligned without wasted work.
-
-Implementation contributions are not available until the initial application scaffold and verified contributor commands exist. See [CONTRIBUTING.md](CONTRIBUTING.md) for the current workflow.
+Contributions should remain focused on small, reviewable outcomes that preserve the approved product and architecture. For substantial changes, open an issue before preparing a pull request so the direction can be aligned without wasted work. See [CONTRIBUTING.md](CONTRIBUTING.md) for the verified workflow.
 
 ## Privacy Principle
 
