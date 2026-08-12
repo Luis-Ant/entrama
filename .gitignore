@@ -1,0 +1,60 @@
+# Local project metadata
+.atl/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Dependencies and package-manager caches
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+
+# Build and Vite artifacts
+dist/
+build/
+.vite/
+*.local
+
+# Test and coverage artifacts
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+blob-report/
+
+# Local Supabase state
+.supabase/
+supabase/.temp/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local credentials and keys
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account*.json
+
+# Editors
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+
+# Operating systems
+.DS_Store
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,93 @@
+name: Bug report
+description: Report a reproducible problem in Entrama
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Entrama. Before submitting, search existing issues and remove all private typed content, credentials, tokens, authentication links, and personal data. Use synthetic examples only. Report security vulnerabilities privately through GitHub Security Advisories.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Problem summary
+      description: Describe the problem and its impact in a few clear sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest reliable sequence that reproduces the problem. Use synthetic text only.
+      placeholder: |
+        1. Open...
+        2. Select...
+        3. Type synthetic example...
+        4. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead? Redact all private or sensitive information.
+    validations:
+      required: true
+  - type: dropdown
+    id: keyboard_profile
+    attributes:
+      label: Supported keyboard profile
+      description: Select the confirmed profile used when the problem occurred.
+      options:
+        - Windows US International
+        - Windows Latin American QWERTY
+        - macOS US International
+        - macOS Latin American QWERTY
+        - Not applicable
+        - Unsupported or unknown profile
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: Firefox 130
+    validations:
+      required: true
+  - type: input
+    id: operating_system
+    attributes:
+      label: Operating system and version
+      placeholder: macOS 15.0
+    validations:
+      required: true
+  - type: dropdown
+    id: install_mode
+    attributes:
+      label: Application mode
+      options:
+        - Browser tab
+        - Installed PWA
+        - Not applicable or not yet available
+    validations:
+      required: true
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+      description: Add sanitized logs, screenshots, accessibility settings, offline state, or other relevant details. Never include real typed content or credentials.
+  - type: checkboxes
+    id: privacy_confirmation
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I removed private typed content, credentials, tokens, authentication links, and personal data from this report and its attachments.
+          required: true

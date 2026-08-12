@@ -1,0 +1,70 @@
+name: Feature request
+description: Propose a problem-aligned improvement for Entrama
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Start with the user problem rather than a preferred implementation. Review the PRD and RFC before proposing substantial product or architecture changes.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user need, limitation, or risk should Entrama address? Who experiences it?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe the observable outcome without prescribing unnecessary implementation details.
+    validations:
+      required: true
+  - type: dropdown
+    id: mvp_alignment
+    attributes:
+      label: MVP alignment
+      description: How does this request relate to the approved MVP?
+      options:
+        - Directly supports an approved MVP requirement
+        - Clarifies or strengthens an approved MVP boundary
+        - Changes an approved MVP decision
+        - Better suited for post-MVP consideration
+        - Unsure
+    validations:
+      required: true
+  - type: textarea
+    id: alignment_details
+    attributes:
+      label: Alignment details
+      description: Link the relevant PRD or RFC section and explain the relationship.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other approaches, workarounds, or decision to do nothing have you considered?
+    validations:
+      required: true
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility considerations
+      description: Consider keyboard-only use, assistive technology, reduced motion, contrast, localization, and supported layouts.
+    validations:
+      required: true
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacy and security considerations
+      description: Explain effects on typed input, authentication, local or synced data, telemetry, content provenance, and abuse risk.
+    validations:
+      required: true
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+      description: Add non-sensitive references, examples, or research that would help evaluate the request.
