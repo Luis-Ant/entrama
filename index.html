@@ -10,6 +10,22 @@
     />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
     <title>Entrama</title>
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("entrama-theme") || "editorial";
+          var font = localStorage.getItem("entrama-font") || "mono";
+          var validThemes = ["editorial", "midnight", "nordic", "forest"];
+          var validFonts = ["mono", "serif", "sans"];
+          if (validThemes.indexOf(theme) === -1) theme = "editorial";
+          if (validFonts.indexOf(font) === -1) font = "mono";
+          var doc = document.documentElement;
+          doc.setAttribute("data-theme", theme);
+          doc.setAttribute("data-font", font);
+          doc.style.colorScheme = theme === "editorial" ? "light" : "dark";
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

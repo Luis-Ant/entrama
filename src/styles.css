@@ -1,18 +1,95 @@
 @import "tailwindcss";
 
+:root,
+[data-theme="editorial"] {
+  --app-paper: oklch(95.5% 0.014 92);
+  --app-panel: oklch(98.5% 0.008 92);
+  --app-ink: oklch(24% 0.025 150);
+  --app-muted: oklch(48% 0.025 145);
+  --app-line: oklch(82% 0.018 105);
+  --app-accent: oklch(58% 0.14 35);
+  --app-error: oklch(48% 0.18 28);
+  --app-error-soft: oklch(91% 0.045 28);
+  --app-highlight: oklch(88% 0.1 88);
+  --app-online: oklch(62% 0.13 151);
+  color-scheme: light;
+}
+
+[data-theme="midnight"] {
+  --app-paper: oklch(14% 0.02 265);
+  --app-panel: oklch(18% 0.025 265);
+  --app-ink: oklch(94% 0.015 250);
+  --app-muted: oklch(65% 0.03 250);
+  --app-line: oklch(28% 0.03 265);
+  --app-accent: oklch(75% 0.17 210);
+  --app-error: oklch(65% 0.22 25);
+  --app-error-soft: oklch(25% 0.08 25);
+  --app-highlight: oklch(35% 0.08 265);
+  --app-online: oklch(72% 0.16 150);
+  color-scheme: dark;
+}
+
+[data-theme="nordic"] {
+  --app-paper: oklch(20% 0.015 240);
+  --app-panel: oklch(24% 0.018 240);
+  --app-ink: oklch(92% 0.01 240);
+  --app-muted: oklch(62% 0.02 240);
+  --app-line: oklch(32% 0.02 240);
+  --app-accent: oklch(76% 0.12 210);
+  --app-error: oklch(62% 0.2 25);
+  --app-error-soft: oklch(28% 0.06 25);
+  --app-highlight: oklch(36% 0.06 240);
+  --app-online: oklch(70% 0.14 160);
+  color-scheme: dark;
+}
+
+[data-theme="forest"] {
+  --app-paper: oklch(18% 0.025 150);
+  --app-panel: oklch(22% 0.03 150);
+  --app-ink: oklch(92% 0.02 140);
+  --app-muted: oklch(65% 0.03 145);
+  --app-line: oklch(30% 0.035 150);
+  --app-accent: oklch(74% 0.15 130);
+  --app-error: oklch(64% 0.2 25);
+  --app-error-soft: oklch(27% 0.07 25);
+  --app-highlight: oklch(34% 0.07 145);
+  --app-online: oklch(72% 0.16 145);
+  color-scheme: dark;
+}
+
+:root,
+[data-font="mono"] {
+  --app-font-sans:
+    ui-monospace, "SF Mono", "JetBrains Mono", "Fira Code", monospace;
+  --app-font-display:
+    ui-monospace, "SF Mono", "JetBrains Mono", "Fira Code", monospace;
+}
+
+[data-font="serif"] {
+  --app-font-sans:
+    "Iowan Old Style", "Palatino Linotype", "Newsreader", Georgia, serif;
+  --app-font-display:
+    "Iowan Old Style", "Palatino Linotype", "Newsreader", Georgia, serif;
+}
+
+[data-font="sans"] {
+  --app-font-sans: "Aptos", "Inter", "Segoe UI", system-ui, sans-serif;
+  --app-font-display: "Aptos", "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
 @theme {
-  --color-paper: oklch(95.5% 0.014 92);
-  --color-panel: oklch(98.5% 0.008 92);
-  --color-ink: oklch(24% 0.025 150);
-  --color-muted: oklch(48% 0.025 145);
-  --color-line: oklch(82% 0.018 105);
-  --color-accent: oklch(58% 0.14 35);
-  --color-error: oklch(48% 0.18 28);
-  --color-error-soft: oklch(91% 0.045 28);
-  --color-highlight: oklch(88% 0.1 88);
-  --color-online: oklch(62% 0.13 151);
-  --font-sans: "Aptos", "Segoe UI", sans-serif;
-  --font-display: "Iowan Old Style", "Palatino Linotype", serif;
+  --color-paper: var(--app-paper);
+  --color-panel: var(--app-panel);
+  --color-ink: var(--app-ink);
+  --color-muted: var(--app-muted);
+  --color-line: var(--app-line);
+  --color-accent: var(--app-accent);
+  --color-error: var(--app-error);
+  --color-error-soft: var(--app-error-soft);
+  --color-highlight: var(--app-highlight);
+  --color-online: var(--app-online);
+  --font-sans: var(--app-font-sans);
+  --font-display: var(--app-font-display);
 }
 
 @layer base {
@@ -21,18 +98,33 @@
   }
 
   html {
-    color-scheme: light;
     font-family: var(--font-sans);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
   }
 
   body {
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
   }
 
   button,
   textarea {
     font: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
